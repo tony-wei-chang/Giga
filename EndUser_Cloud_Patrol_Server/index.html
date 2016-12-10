@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>End User Cloud Patrol server</title>
+  <Link rel="SHORTCUT ICON"  href="image/icon.jpg" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/css.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css">
+  <script type="text/javascript" src="js/jquery/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="js/jquery/jquery.datetimepicker.full.min.js"></script>
+  <script src="js/jquery/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="js/language.js"></script>
+  <script type="text/javascript" src="js/view.js"></script>
+  <script type="text/javascript" src="js/func.js"></script>
+  <script type="text/javascript" src="js/debug.js"></script>
+  <!-- tab -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <script src="js/jquery/jquery-ui.js"></script>
+  <!-- tab -->
+</head>
+<body>
+  <div id="headerProcess" style="height:2px;position:absolute;background-color:red;"></div>
+  <script type="text/javascript">
+    //分成幾種階段 DOMready 登入 取得權限 八個套件 everything-loaded
+    var Y02_TotalStage = 12;
+    var Y02_CurrentStage = 1;
+    //進度條
+    function goProcess()
+    {
+      //更新進度條
+      $('#headerProcess').width((Y02_CurrentStage/Y02_TotalStage*100) + "%");
+      //如果都完成了
+      if(Y02_CurrentStage >= Y02_TotalStage)
+      {
+        //一秒後消失進度條
+        $("#headerProcess").fadeTo(1000, 0);
+        setTimeout(function()
+        {
+          $("#headerProcess").remove();
+        },1000)
+      }
+      //進入下一個階段
+      else
+      {
+        Y02_CurrentStage++;
+      }
+    }
+    ctrlKey = false;
+    shiftKey = false;
+    //Time until DOMready
+    $(document).ready(function()
+    {
+      goProcess();
+      $("body").keydown(function(e)
+      {
+        if(e.ctrlKey)
+        {
+          ctrlKey = true;
+        }
+        if(e.shiftKey)
+        {
+          shiftKey = true;
+        }
+      });
+      $("body").keyup(function(e)
+      {
+        ctrlKey = false;
+        shiftKey = false;
+      });
+    });
+    //Time until everything loaded
+    $(window).load(function()
+    {
+      goProcess();
+    });
+  </script>
+</body>
+</html>
