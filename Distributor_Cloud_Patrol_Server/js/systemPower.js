@@ -1,0 +1,36 @@
+/*系統權限 Y02*/
+try
+{
+	//載入指定js
+	loadJs('js/1.js');
+	loadJs('js/2.js');
+	loadJs('js/3.js');
+	loadJs('js/4.js');
+	loadJs('js/5.js');
+	loadJs('js/6.js');
+	loadJs('js/7_2.js');
+	loadJs('js/7_3.js');
+	loadJs('js/7_4.js');
+	loadJs('js/7.js');
+	loadJs('js/8.js');
+	loadJs('js/9.js');
+	// loadJs('js/10.js');
+	loadJs('js/Function_1.js');
+	loadJs('js/Function_2.js');
+	loadJs('js/Function_3.js');
+	loadJs('js/Function_4.js');
+	loadJs('js/21.js');
+	loadJs('js/22.js');
+	loadJs('js/23.js');
+	loadJs('js/24.js');
+	loadJs('js/25.js');
+	loadJs('js/26.js');
+	loadJs('js/28.js');
+}
+catch(err)
+{
+	if(App_Debug)
+	{
+		console.log(err);
+	}
+}
